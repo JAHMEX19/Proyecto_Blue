@@ -31,18 +31,13 @@ app.use(express.urlencoded({extended:false}));
 //Root Get all Measurments 
 app.get('/', taskController.getAllMeasurments);
 
-//Add device 
-app.get('/add',taskController.getAddDevice);
+// Add measurment 
+app.get('/add/:id:identificador-:dispositivo-:sensor-:valor',taskController.addMeasurment);
 
-// Add measurment id:3, identificador :'B03',variable :'Current',valor:5
-app.post('/add/:id-:identificador-:dispositivo-:variable-:valor',taskController.addMeasurment);
+//http://localhost:3000/add/4-B04-Arduino uno-Temp-35
 
-// Edit Device 
-app.get('/edit/:id',taskController.getEditDevice);
-
-
-//Delete Device
-app.get('/delete/:id')
+//Delete Measurment
+app.get('/delete/:id',taskController.deleteMeasurments);
 
 //Use
 app.use(errorController.error404);

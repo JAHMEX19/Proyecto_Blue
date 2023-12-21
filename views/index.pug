@@ -10,7 +10,5 @@ block content
             else
                 each element in measurments
                     li.measurment-list
-                        a(href=`/edit/${element.id}`) #{element.identificador} #{element.dispositivo} #{element.variable} #{element.valor}
-
-                        
-                        a.delete-btn(href=`/delete/${element.id}`) Eliminar lectura
+                        a(href=`/edit/${element.id}`) #{element.identificador} #{element.dispositivo} #{element.sensor} #{element.valor}
+                        a.delete-btn(href=`/delete/${element.id}`) Eliminar
