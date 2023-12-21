@@ -1,0 +1,117 @@
+html {
+    font-size: 16px;
+}
+
+* {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100hv;
+    font-family: sans-serif;
+    background-color: rgb(7, 7, 44);
+    color: white;
+    line-height: 1.6;
+}
+
+main {
+    min-height: 720px;
+
+}
+
+.header {
+
+    padding: 0 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header .menu ul {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.measurment-list {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    border: 1px solid white;
+    margin: 20px 0;
+    padding: 10px;
+    position: relative;
+    border-radius: 15px;
+    width: 300px;
+}
+
+.sub-menu {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+    padding: 10px 0;
+}
+
+
+a,
+button {
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .03s ease-out;
+
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+a:hover {
+    opacity: 0.75;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: thin solid white;
+}
+
+.add-button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(7, 7, 44);
+}
