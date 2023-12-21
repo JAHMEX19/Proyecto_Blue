@@ -35,7 +35,7 @@ app.get('/', taskController.getAllMeasurments);
 app.get('/add',taskController.getAddDevice);
 
 // Add measurment id:3, identificador :'B03',variable :'Current',valor:5
-app.post('/add/:id-:identificador-:variable:-:valor',taskController.addMeasurment);
+app.post('/add/:id-:identificador-:dispositivo-:variable-:valor',taskController.addMeasurment);
 
 // Edit Device 
 app.get('/edit/:id',taskController.getEditDevice);

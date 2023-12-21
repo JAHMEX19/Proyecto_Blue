@@ -28,13 +28,15 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
 }
 
 .header .menu ul {
-    width: 300px;
+    width: 150px;
     display: flex;
     justify-content: space-between;
     list-style: none;
+    
 
 }
 
@@ -42,6 +44,10 @@ main {
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .text-center {
@@ -57,7 +63,7 @@ main {
     padding: 10px;
     position: relative;
     border-radius: 15px;
-    width: 300px;
+    width: 400px;
 }
 
 .sub-menu {
