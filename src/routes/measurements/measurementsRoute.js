@@ -7,7 +7,7 @@ const measurementsRouter = express.Router();
 
 
 measurementsRouter.get('/',getMeasurements);
-measurementsRouter.post('/register',createMeasurement);
+measurementsRouter.post('/add',createMeasurement);
 measurementsRouter.delete ('/delete/:id',deleteMeasurement);
 
 export default measurementsRouter;

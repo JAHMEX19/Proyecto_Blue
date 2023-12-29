@@ -31,11 +31,11 @@ class Measurements {
 	createMeasurement(newMeasurement) {
 		this.measurements.push(newMeasurement);
 	}
+
 	deleteMeasurement(idToDelete) {
-		const position = this.measurements.findIndex((measurment) => {
-			measurment.id === parseInt(idToDelete);
-			this.measurements.slice(position, 1);
-		});
+		const position = this.measurements.findIndex(element => element.id === parseInt(idToDelete));
+	    this.measurements.splice(position, 1);
+	
 	}
 }
 export default Measurements;

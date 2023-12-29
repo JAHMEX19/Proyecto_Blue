@@ -1,0 +1,13 @@
+extends layout.pug 
+
+block content
+    main.container
+        h1.text-center= title 
+        ul.measurments-list
+            if measurements.length === 0
+                li.measurment-list 
+                    b.text-center Measurments register empty
+            else 
+                each element in measurements 
+                    li.measurment-list(href=`/${element.id}`) #{element.identificador} #{element.dispositivo} #{element.sensor} #{element.valor}
+                

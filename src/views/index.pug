@@ -3,12 +3,6 @@ extends layout.pug
 block content
     main.container
         h1.text-center= title 
-        ul.measurments-list
-            if measurments.length === 0
-                li 
-                     b.text-center Measurments register empty
-            else
-                each element in measurments
-                    li.measurment-list
-                        a(href=`/edit/${element.id}`) #{element.identificador} #{element.dispositivo} #{element.sensor} #{element.valor}
-                        a.delete-btn(href=`/delete/${element.id}`) Eliminar
+        div.index-container
+            p Este proyecto tiene como objetivo la integración de un sistema capaz de cumplir con las demandas de una era digital, entre las características destacadas tenemos, diseño electrónico modular,desarrollo de plataforma web para registro y monitoreo de mediciones, uso de protocolos de comunicación e integración de sensores.
+            img.index-img(src="/img/img1.png", alt="ESP32" )

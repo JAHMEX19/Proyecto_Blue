@@ -1,0 +1,14 @@
+extends layout.pug 
+
+block content
+    main.container
+        h1.text-center= title 
+        ul.measurments-list
+           // if measurments.length === 0
+                li 
+                     b.text-center Measurments register empty
+            else
+                each element in measurments
+                    li.measurment-list
+                        a(href=`/edit/${element.id}`) #{element.identificador} #{element.dispositivo} #{element.sensor} #{element.valor}
+                        a.delete-btn(href=`/delete/${element.id}`) Eliminar
