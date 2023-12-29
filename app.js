@@ -2,10 +2,11 @@ import express from 'express';
 import cors from "cors"; 
 import helmet from 'helmet';
 import morgan from 'morgan';
-import taskController from "./controllers/taskController.js";
+//import taskController from "./src/controllers/taskController.js";
 import path  from 'path';
-import errorController from './controllers/errorController.js';
+//import errorController from './src/controllers/errors/errorController.js';
 import { fileURLToPath } from 'url';
+import routerApi from './src/routes/mainRoutes.js';
 
 const __dirname = fileURLToPath(new URL(".",import.meta.url)); //Guarda la ruta del directorio
 //Inicializamos nuestra app
@@ -18,7 +19,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 //Definicion de plantilla a usar (PUG)
-app.set("views",path.join(__dirname,"views"));
+app.set("views",path.join(__dirname,"/src/views"));
 app.set("view engine","pug");
 
 //Express uses
@@ -26,98 +27,17 @@ app.use(express.static(path.join(__dirname,"public")));//Unir ruta public
 app.use(express.json());//Habilita el uso de body JSON en nuestra aplicacion 
 app.use(express.urlencoded({extended:false}));
 
-//Endpoints - Rutas
 
-//Root Get all Measurments 
-app.get('/', taskController.getAllMeasurments);
 
-// Add measurment 
-app.get('/add/:id:identificador-:dispositivo-:sensor-:valor',taskController.addMeasurment);
+// Rutas
 
-//http://localhost:3000/add/4-B04-Arduino uno-Temp-35
+routerApi(app);
 
-//Delete Measurment
-app.get('/delete/:id',taskController.deleteMeasurments);
-
-//Use
-app.use(errorController.error404);
+//Get all Measurments 
+//app.get('/', taskController.getAllMeasurments);
 
 
 //Server 
 app.listen(port,()=>{
     console.log(`La aplicación esta corriendo en el puerto http://localhost:${port}`);
 })
-/*
-//Home
-app.get('/home',(req,res)=>{
-
-    res.send (`<h1> Response Direct HTML  <h21>`);
-
-});
-
-//Optener info 
-app.get('/mediciones',(req,res)=>{
-
-    //JSON para intercambio de datos standar API
-    res.json(measurments);
-    
-
-})
-
-//RECIBIR DATO 
-app.post('/mediciones',(req,res)=>{
-
-  // Dato entrada -> {id:'4', identificador :'B04',variable :'Voltaje',valor:'12'}
-
-  const newMeasurement = req.body;
-
-  measurments.push(newMeasurement);
- res.status(201).json({status:201,message:'Medicion registrada',data: newMeasurement});
-});
-
-//PUT modificar todo el objeto PATCH modificar una parte del objeto
-app.patch('/mediciones/:id',(req,res)=>{
-
-    const IdToModify=req.params.id; //Recibimos la variable
-    const newMeasurement = req.body;
-    
-    const position = measurments.findIndex (element =>element.id === parseInt(IdToModify));
-        
-    //measurments[position] = newMeasurement; // Erro borra todo los demas elementos
-    measurments[position] ={...measurments[position], ...newMeasurement} //Usamos ... para tarer los elementos del primero {...} crea una copia 
-    res.status(200).json({status:200,message:'Elemento modificado',id: IdToModify});
-
-    } );
- 
-
-
-
-
-/*
-import { SerialPort } from "serialport";
-import { ReadlineParser } from '@serialport/parser-readline';
-
-
-
-const myPort = new SerialPort({
-    path:'COM9',
-    baudRate: 115200
-});
-
-const parser = new ReadlineParser();
-myPort.pipe(parser);
-
-parser.on("data",(line)=>{
-    console.log(line);
-});
-
-const $ATCommand = document.getElementById("ATCommand");
-
-document.addEventListener("click", (e)=>{
-    if (e.target.matches("ATCommand")) {
-        console.log("AT");
-    }
-});
-
-*/
-

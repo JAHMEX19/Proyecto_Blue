@@ -1,25 +1,33 @@
 
-//Simulate DB
-let measurments = [
-    {id:1, identificador :'B01',dispositivo:'arduino uno',sensor :'Temp',valor:58},
-    {id:2, identificador :'B02',dispositivo:'arduino uno',sensor :'Hall',valor:50},
-    {id:3, identificador :'B03',dispositivo:'arduino uno',sensor :'Current',valor:5}
-];
-
-
 //Funciones para trabajar en cada ruta definida
- const getAllMeasurments = (req,res)=>{
-    res.render("index.pug",{title:"Lista de mediciones", measurments});
-
+const measurments = [
+    {
+        id: 1,identificador: "B01",dispositivo: "arduino uno",sensor: "Temp",valor: 58,
+    },
+    {
+        id: 2,identificador: "B02",dispositivo: "arduino uno",sensor: "Hall",valor: 50,
+    },
+]
+ const getAllMeasurments = (req,res)=>{ 
+        res.render("index.pug",{title:"Lista de mediciones", measurments});
  }
 
  const addMeasurment = (req,res)=>{
-   
+
+    try {
+
     let{id,identificador,dispositivo,sensor,valor} = req.params;
     console.log(req.params);
     id=measurments.length+1;
     measurments.push({id,identificador,dispositivo,sensor,valor});
     res.redirect("/");
+
+    } catch (error) {
+        res.status(500);
+        console.log(`Error: ${res.status}`);
+    }
+   
+   
     
  }
 
