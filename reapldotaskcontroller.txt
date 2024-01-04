@@ -12,7 +12,7 @@ const measurments = [
         res.render("index.pug",{title:"Lista de mediciones", measurments});
  }
 
- const addMeasurment = (req,res)=>{
+ const addMedicion = (req,res)=>{
 
     try {
 

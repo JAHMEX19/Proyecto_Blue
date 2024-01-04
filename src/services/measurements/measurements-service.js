@@ -13,6 +13,8 @@ class Measurements {
 				dispositivo: "arduino uno",
 				sensor: "Temp",
 				valor: 58,
+				date:29/12/2023,
+				time:"10:35"
 			},
 			{
 				id: 2,
@@ -20,6 +22,8 @@ class Measurements {
 				dispositivo: "arduino uno",
 				sensor: "Hall",
 				valor: 50,
+				date:29/12/2023,
+				time:"11:00"
 			},
 		];
 	}
@@ -30,12 +34,20 @@ class Measurements {
 	}
 	createMeasurement(newMeasurement) {
 		this.measurements.push(newMeasurement);
+		
+		
 	}
 
 	deleteMeasurement(idToDelete) {
 		const position = this.measurements.findIndex(element => element.id === parseInt(idToDelete));
 	    this.measurements.splice(position, 1);
 	
+	}
+
+	addRegistro(id){
+		
+		newMedicion={id}
+		this.measurements.push(newMedicion);
 	}
 }
 export default Measurements;

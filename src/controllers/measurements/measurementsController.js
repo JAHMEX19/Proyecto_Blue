@@ -36,8 +36,21 @@ const deleteMeasurement = (req, res) => {
 	}
 };
 
+
+const addMedicion = (req,res)=>{
+
+	let id = req.params.id;
+	console.log(id);
+	//let newMedicion = {id,identificador,dispositivo,sensor,valor};
+	measurementsObject.addRegistro(id);
+	//res.status(200).json({ message: "Data Entry Ok" });
+	res.redirect("/measurements");
+
+}
+
 export {
     getMeasurements,
     createMeasurement,
-    deleteMeasurement
+    deleteMeasurement,
+	addMedicion
 }
