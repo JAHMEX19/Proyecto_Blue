@@ -38,13 +38,15 @@ const deleteMeasurement = (req, res) => {
 
 
 const addMedicion = (req,res)=>{
+try{
+	let{id,identificador,dispositivo,sensor,valor} = req.params;
+	const NewMedicion= {id,identificador,dispositivo,sensor,valor};
+	measurementsObject.addRegistro(NewMedicion);
+	res.status(200).json({ message: "Data Entry Ok" });
+	}catch{
+		res.status(500).json({ message: error });
 
-	let id = req.params.id;
-	console.log(id);
-	//let newMedicion = {id,identificador,dispositivo,sensor,valor};
-	measurementsObject.addRegistro(id);
-	//res.status(200).json({ message: "Data Entry Ok" });
-	res.redirect("/measurements");
+	}
 
 }
 

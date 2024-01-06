@@ -8,8 +8,6 @@ const routerApi =(app)=>{
 
     app.use('/',(req,res)=>{
         res.render("index.pug",{title:"Proyecto"})
-
-
     });
 
 

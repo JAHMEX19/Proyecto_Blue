@@ -44,10 +44,9 @@ class Measurements {
 	
 	}
 
-	addRegistro(id){
+	addRegistro(NewMedicion){
 		
-		newMedicion={id}
-		this.measurements.push(newMedicion);
+		this.measurements.push(NewMedicion);
 	}
 }
 export default Measurements;
